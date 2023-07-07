@@ -14,6 +14,7 @@ RUN apt-get update \
     && apt-get install --no-install-recommends -y \
     file
 
+
 RUN echo "" >> ${R_HOME}/etc/Renviron
 RUN echo "RENV_PATHS_ROOT=${RENV_PATHS_ROOT}" >> ${R_HOME}/etc/Renviron
 RUN echo "RENV_PATHS_LIBRARY=${RENV_PATHS_LIBRARY}" >> ${R_HOME}/etc/Renviron
@@ -24,6 +25,7 @@ WORKDIR /project
 RUN R -e "install.packages('renv', repos = c(CRAN = 'https://p3m.dev/cran/__linux__/jammy/latest'))"
 RUN R -e "renv::restore(lockfile = 'renv.lock')"
 
+RUN chmod -R 777 /project/renv
 
 
 
