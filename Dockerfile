@@ -22,7 +22,7 @@ RUN echo "R_LIBS_SITE=${R_LIBS_SITE}" >> ${R_HOME}/etc/Renviron
 WORKDIR /project
 # COPY renv.lock .
 RUN R -e "install.packages('renv', repos = c(CRAN = 'https://p3m.dev/cran/__linux__/jammy/latest'))"
-# RUN R -e "renv::restore(lockfile = 'renv.lock', library='/project/renv/library/R-4.1/x86_64-pc-linux-gnu')"
+RUN R -e "renv::restore(lockfile = 'renv.lock')"
 
 
 
