@@ -10,6 +10,10 @@ ENV RENV_PATHS_ROOT=/project/renv
 ENV RENV_PATHS_LIBRARY=/project/renv/library
 ENV R_LIBS_SITE=/project/renv/library/R-4.2/x86_64-pc-linux-gnu:/opt/R/4.2.3/lib/R/library
 
+RUN apt-get update \
+    && apt-get install --no-install-recommends -y \
+    file
+
 RUN echo "" >> ${R_HOME}/etc/Renviron
 RUN echo "RENV_PATHS_ROOT=${RENV_PATHS_ROOT}" >> ${R_HOME}/etc/Renviron
 RUN echo "RENV_PATHS_LIBRARY=${RENV_PATHS_LIBRARY}" >> ${R_HOME}/etc/Renviron
