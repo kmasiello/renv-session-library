@@ -1,10 +1,10 @@
 # build
-docker build -t ghcr.io/kmasiello/renv-session-library:2023-06-09 .
+docker build -t ghcr.io/kmasiello/renv-session-library:2023-06-14 .
 
 echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
 
 # push to ghcr.io
-docker push ghcr.io/kmasiello/renv-session-library:2023-06-09 
+docker push ghcr.io/kmasiello/renv-session-library:2023-06-14 
 
 
 
